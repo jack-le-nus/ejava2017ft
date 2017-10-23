@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+		<h1>My Cart</h1>
+		<h:form>
+
+			Item:
+			<h:inputText value="#{cart.item}"/>
+			<h:commandButton value="Add" action="#{cart.addToCart()}"/>
+
+			<h:dataTable var="i" value="#{cart.contents}">
+				<h:column>
+					<h:outputText value="#{i}"/>
+				</h:column>
+			</h:dataTable>
+			
+			<h:commandButton value="Checkout" action="#{cart.checkout()}"/>
+
+		</h:form>
+    </h:body>
+</html>
+

@@ -1,0 +1,13 @@
+{
+  "name": "week2_rest",
+  "version": "1.0.0",
+  "main": "path/to/main.css",
+  "ignore": [
+    ".jshintrc",
+    "**/*.txt"
+  ],
+  "dependencies": {"angularjs":"1.6.6",
+    "angular": "angularjs#1.6.6"
+  },
+  "devDependencies": {}
+}
