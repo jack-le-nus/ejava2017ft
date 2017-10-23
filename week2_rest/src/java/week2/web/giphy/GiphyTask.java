@@ -33,7 +33,7 @@ public class GiphyTask implements Runnable {
 		Client client = ClientBuilder.newClient();
 
 		WebTarget target = client.target("https://api.giphy.com/v1/gifs/search");
-		target = target.queryParam("api_key", "7cf49b91cbac420198483abde27d622f")
+		target = target.queryParam("api_key", "__GIPHY_API__KEY__")
 					.queryParam("q", q);
 
 		Invocation.Builder invocation = target.request(MediaType.APPLICATION_JSON);
