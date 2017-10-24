@@ -13,6 +13,15 @@ public class Customer {
 	private String city;
 	private String email;
 	private String phone;
+        private Double balance;
+
+        public Double getBalance() {
+            return balance;
+        }
+
+        public void setBalance(Double balance) {
+            this.balance = balance;
+        }
 
 	public Integer getCustomerId() {
 		return customerId;
@@ -64,13 +73,13 @@ public class Customer {
 
 	public static Customer populate(ResultSet rs) throws SQLException {
 		Customer c = new Customer();
-		c.address = rs.getString("ADDRESSLINE1");
+		c.address = rs.getString("ADDRESS");
 		c.city = rs.getString("CITY");
 		c.customerId = rs.getInt("CUSTOMER_ID");
 		c.email = rs.getString("EMAIL");
 		c.name = rs.getString("NAME");
 		c.phone = rs.getString("PHONE");
-
+                c.balance = rs.getDouble("BALANCE");
 		return (c);
 	}
 

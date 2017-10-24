@@ -17,7 +17,7 @@ public class QueryView {
 
 	private static final String FIND_BY_CUSTID = "select * from CUSTOMER where CUSTOMER_ID = ?";
 
-	@Resource(lookup = "jdbc/ejavaft")
+	@Resource(lookup = "ejavaftProject")
 	private DataSource ds;
 
 	private Customer customer = null;

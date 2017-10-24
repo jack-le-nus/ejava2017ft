@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet(urlPatterns = {"/rsvp"})
 public class RSVPservlet extends HttpServlet {
@@ -31,10 +32,10 @@ public class RSVPservlet extends HttpServlet {
 				String.format("name: %s, email: %s, phone: %s", name, email, phone));
 		System.out.println(">> class for RSVP: " + rsvp.getClass().getName());
 		System.out.println(">> content for RSVP: " + rsvp.getContent().getClass().getName());
-
+                
 		//attendence.add(rsvp.getContent());
 		attendence.add();
-
+                
 		resp.setStatus(HttpServletResponse.SC_ACCEPTED);
 		resp.setContentType("text/html");
 
@@ -46,6 +47,8 @@ public class RSVPservlet extends HttpServlet {
 				pw.println(String.format("<li>name = %s</li>", r.getName()));
 			pw.println("</ul>");
 			pw.flush();
+                        
+                        pw.println(String.format("<h1>Number of attendence: %d</h1>", attendence.getAttendence().size()));
 		}
 	}
 

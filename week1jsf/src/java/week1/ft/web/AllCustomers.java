@@ -18,7 +18,7 @@ public class AllCustomers {
 
 	private static final String FIND_ALL = "select * from CUSTOMER";
 
-	@Resource(lookup = "jdbc/ejavaft")
+	@Resource(lookup = "ejavaftProject")
 	private DataSource ds;
 
 	private List<Customer> customers = new LinkedList<>();
