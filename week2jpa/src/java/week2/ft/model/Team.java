@@ -2,6 +2,9 @@ package week2.ft.model;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonObjectBuilder;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -51,6 +54,19 @@ public class Team implements Serializable {
 	}
 	public void setMembers(List<Member> members) {
 		this.members = members;
+	}
+
+	/*
+	{ name: name, teamId: teamId, git-repo: gitRepo
+	*/
+	public JsonObject toJson() {
+
+		//Builder
+		return (Json.createObjectBuilder()
+				.add("teamId", teamId)
+				.add("name", name)
+				.add("git-repo", gitRepo)
+				.build());
 	}
 
 }

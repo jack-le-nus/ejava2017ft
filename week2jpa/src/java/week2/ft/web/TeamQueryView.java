@@ -32,9 +32,12 @@ public class TeamQueryView {
 
 	public void query() {
 		System.out.println(">> team id = " + queryId);
+		team = teamBean.findById(queryId);
+		/*
 		team = teamBean
 				.findById(queryId)
 				.orElse(null);
+		*/
 	}
 	
 }
