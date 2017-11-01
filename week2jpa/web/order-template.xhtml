@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<!--    <h:head>
+        <title>Order JPA Example</title>
+        <h:outputStylesheet library="css" name="default.css"/>
+    </h:head>-->
+    <body>
+        <h1><ui:insert name="title">Default title</ui:insert></h1>
+        <ui:insert name="body">Default body</ui:insert>
+        
+        <h2>View All Orders</h2>
+        <ui:insert name="ordersTable">Default orders Table</ui:insert>
+        
+        <h2>Create New Order</h2>
+        <ui:insert name="newOrderForm">Default new order form</ui:insert>
+        
+        <h2>Find Vendors</h2>
+        <ui:insert name="findVendorForm">Default find vendors form</ui:insert>
+        <ui:insert name="findVendorTable">Default find vendors Table</ui:insert>
+    </body>
+</html>

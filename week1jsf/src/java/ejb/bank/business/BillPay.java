@@ -17,7 +17,9 @@ import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
 import javax.jms.ConnectionFactory;
+import javax.jms.JMSContext;
 import javax.jms.JMSException;
+import javax.jms.JMSProducer;
 import javax.jms.MessageProducer;
 import javax.jms.Queue;
 import javax.jms.Session;
@@ -34,10 +36,10 @@ public class BillPay {
     private static final String FIND_USERS = "select * from CUSTOMER";
     @Resource(lookup = "ejavaftProject")
     private DataSource ds;
-    @Resource(mappedName = "jms/connectionFactory")
+    @Resource(mappedName = "jms/myConnectionFactory")
     private ConnectionFactory connectionFactory;
     
-    @Resource(mappedName = "jms/queue")
+    @Resource(mappedName = "jms/myQueue")
     private Queue queue;
     
     public BillPay(List<String> payees) {
@@ -72,12 +74,11 @@ public class BillPay {
     }
     
     private void updateBackofficeRecords(String accountNumber, String payee, double amount, String confirmation, Date d){
-        try(javax.jms.Connection c = connectionFactory.createConnection()){
-            Session session = c.createSession(false, Session.AUTO_ACKNOWLEDGE);
-            MessageProducer messageProducer = session.createProducer(queue);
-            TextMessage message = session.createTextMessage();
-            message.setText(String.format("%s confirmed to pay %s to %d on %t", accountNumber, payee, amount, d));
-            messageProducer.send(message);
+        try (javax.jms.Connection jmsCtx = this.connectionFactory.createConnection()) {
+//            JMSProducer producer = jmsCtx.createProducer();
+//            TextMessage txtMsg = jmsCtx.createTextMessage();
+//            txtMsg.setText(String.format("%s confirmed to pay %s to %d on %t", accountNumber, payee, amount, d));
+//            producer.send(queue, txtMsg);
         } catch(JMSException e) {
             System.out.println(e.getMessage());
         }
